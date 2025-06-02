@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maroc 2030 - Coupe du Monde & Investissements</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #006233 0%, #C1272D 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0, 98, 51, 0.7), rgba(193, 39, 45, 0.7)),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon points="500,50 950,850 50,850" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+            animation: backgroundFloat 20s ease-in-out infinite;
+        }
+
+        @keyframes backgroundFloat {
+
+            0%,
+            100% {
+                transform: scale(1) rotate(0deg);
+            }
+
+            50% {
+                transform: scale(1.05) rotate(1deg);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.3);
+            }
+
+            to {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 255, 255, 0.5);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease-out 0.5s forwards;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease-out 1s forwards;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #FFD700;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transform: translateY(-100%);
+            animation: slideDown 1s ease-out 2s forwards;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #FFD700;
+        }
+
+        /* Enhanced logo image styling */
+        .logo img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #FFD700;
+        }
+
+        /* Companies Section */
+        .companies-section {
+            padding: 5rem 0;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: #006233;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .companies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .company-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideInUp 0.8s ease-out forwards;
+        }
+
+        .company-card:nth-child(even) {
+            animation-delay: 0.2s;
+        }
+
+        .company-card:nth-child(3n) {
+            animation-delay: 0.4s;
+        }
+
+        .company-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .company-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .company-name {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #006233;
+        }
+
+        /* Enhanced company logo styling */
+        .company-name img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            padding: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid rgba(0, 98, 51, 0.1);
+        }
+
+        .company-name img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 98, 51, 0.2);
+            border-color: rgba(0, 98, 51, 0.3);
+        }
+
+        .company-country {
+            background: #C1272D;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .company-sector {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .company-description {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .company-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .company-link {
+            display: inline-block;
+            background: linear-gradient(45deg, #006233, #008040);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .company-link:hover {
+            background: linear-gradient(45deg, #008040, #00a050);
+            transform: scale(1.05);
+        }
+
+        /* Additional Info Section */
+        .additional-info {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            color: white;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .info-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.3rem;
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+
+        /* Enhanced info section logo styling */
+        .info-title img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .info-title img:hover {
+            transform: scale(1.1);
+            background: rgba(255, 215, 0, 0.1);
+            border-color: rgba(255, 215, 0, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 50%, #2d2d2d 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-container {
+            position: relative;
+            z-index: 2;
+            padding: 5rem 0 3rem;
+        }
+
+        .footer-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300"><path d="M0,100 C150,200 350,0 500,100 C650,200 850,0 1000,100 L1000,300 L0,300 Z" fill="rgba(0,98,51,0.1)"/></svg>') repeat-x;
+            background-size: 1000px 300px;
+            animation: waveMove 20s linear infinite;
+        }
+
+        @keyframes waveMove {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-1000px);
+            }
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section {
+            text-align: left;
+        }
+
+        .footer-section h4 {
+            color: #FFD700;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .footer-section h4::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, #FFD700, #C1272D);
+        }
+
+        .footer-section p,
+        .footer-section li {
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #FFD700;
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #FFD700, #C1272D, #006233);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: logoGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes logoGlow {
+            0% {
+                filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.3));
+            }
+
+            100% {
+                filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.6));
+            }
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .social-link {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #006233, #C1272D);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 215, 0, 0.3);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            bottom: 30%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
+
+        /* Image Loading Effect */
+        .company-name img,
+        .info-title img,
+        .logo img {
+            opacity: 0;
+            animation: imageLoad 0.6s ease-out forwards;
+        }
+
+        @keyframes imageLoad {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Fallback for missing images */
+        .company-name img[src=""],
+        .info-title img[src=""],
+        .logo img[src=""] {
+            display: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .companies-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .company-name img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .info-title img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .logo img {
+                width: 35px;
+                height: 35px;
+            }
+
+            .company-name {
+                font-size: 1.3rem;
+            }
+
+            .info-title {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .company-name {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .company-name img {
+                width: 45px;
+                height: 45px;
+                align-self: flex-start;
+            }
+
+            .info-title {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="./images/cup_logo.jpeg" alt="cup_logo" onerror="this.style.display='none'">
+                    <span>Maroc 2030</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#companies">Entreprises</a></li>
+                    <li><a href="#info">Informations</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header id="home">
+        <div class="hero-bg"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Coupe du Monde 2030</h1>
+                <p class="hero-subtitle">Nouveaux entrants sur le marché marocain</p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="+2%">+2%</div>
+                        <div class="stat-label">Croissance PIB</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="+30%">+30%</div>
+                        <div class="stat-label">Hausse Exportations</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="25M">25M</div>
+                        <div class="stat-label">Visiteurs en 2030</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Companies Section -->
+    <section class="companies-section" id="companies">
+        <div class="container">
+            <div
+                style="max-width: 900px; margin: 0 auto 3rem; text-align: center; font-size: 1.1rem; line-height: 1.8; color: #333; background: rgba(255,255,255,0.8); padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                À l'approche de la Coupe du Monde 2030, le Maroc attire de plus en plus d'entreprises internationales.
+                Des géants comme Oracle (technologie), Veolia (eau), ou Colas Rail (LGV) investissent massivement dans
+                le pays pour moderniser ses infrastructures, booster son économie et créer des milliers d'emplois. Ces
+                nouveaux entrants profitent des opportunités offertes par le Mondial, mais aussi de la stratégie du
+                Maroc pour devenir un hub régional. Dans cette étude, nous analysons qui sont ces acteurs, pourquoi ils
+                s'installent maintenant et quels impacts ils auront sur le Royaume.
+            </div>
+            <h2 class="section-title">Entreprises Internationales</h2>
+
+            <div class="companies-grid">
+                <!-- Oracle -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3 class="company-name">
+                            <img src="./images/oracle_logo.jpeg" alt="Oracle Logo" onerror="this.style.display='none'">
+                            <span>Oracle</span>
+                        </h3>
+                        <span class="company-country">États-Unis</span>
+                    </div>
+                    <div class="company-sector">Technologie / R&D</div>
+                    <p class="company-description">
+                        Oracle renforce sa présence au Maroc en élargissant son centre de R&D à Casablanca.
+                        L'entreprise prévoit de recruter 1 000 ingénieurs IT pour soutenir le développement
+                        de solutions en cloud, IA et cybersécurité.
+                    </p>
+                    <div class="company-links">
+                        <a href="https://www.oracle.com/ma/" class="company-link" target="_blank">Site Web</a>
+                        <a href="https://www.journaleco.ma/oracle-va-etendre-ses-centres-de-rd-au-maroc/"
+                            class="company-link" target="_blank">Article</a>
+                        <a href="https://youtu.be/1gRR-EUFXe0?si=jPZld_qF33ImK0NI" class="company-link"
+                            target="_blank">Vidéo</a>
+                    </div>
+                </div>
+
+                <!-- Xlinks -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3 class="company-name">
+                            <img src="./images/xlinks_logo.jpeg" alt="Xlinks Logo" onerror="this.style.display='none'">
+                            <span>Xlinks</span>
+                        </h3>
+                        <span class="company-country">Royaume-Uni</span>
+                    </div>
+                    <div class="company-sector">Énergie renouvelable & Interconnexion</div>
+                    <p class="company-description">
+                        Xlinks investit 22 milliards de livres dans un projet inédit : transporter l'électricité
+                        verte du Maroc vers le Royaume-Uni via un câble sous-marin de 3800 km. Le projet couvrira
+                        jusqu'à 8 % des besoins en électricité du Royaume-Uni.
+                    </p>
+                    <div class="company-links">
+                        <a href="https://xlinks.co/morocco-uk-power-project/" class="company-link"
+                            target="_blank">Projet</a>
+                        <a href="https://www.journaleco.ma/xlinks-maroc-uk-des-officiels-effectuent-9-500-heures-de-travail-sur-le-cable-dune-valeur-de-17-milliards-de-livres-sterling/"
+                            class="company-link" target="_blank">Article</a>
+                        <a href="https://youtu.be/lpNidX1kdjI?si=MdX7NWe4J4l4PDk_" class="company-link"
+                            target="_blank">Vidéo</a>
+                    </div>
+                </div>
+
+                <!-- ESP Solutions -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3 class="company-name">
+                            <img src="./images/ESP_logo.jpeg" alt="ESP Solutions Logo"
+                                onerror="this.style.display='none'">
+                            <span>ESP Solutions</span>
+                        </h3>
+                        <span class="company-country">Espagne</span>
+                    </div>
+                    <div class="company-sector">Transport & Logistique</div>
+                    <p class="company-description">
+                        ESP Solutions s'installe à Tanger pour soutenir la croissance des échanges
+                        agroalimentaires et pharmaceutiques. Elle prévoit de doubler son chiffre
+                        d'affaires en 5 ans.
+                    </p>
+                    <div class="company-links">
+                        <a href="https://espsolutions.eu/en/home/" class="company-link" target="_blank">Site Web</a>
+                        <a href="https://fr.le7tv.ma/2023/11/04/transport-routier-lentreprise-espagnol-esp-solutions-augmente-son-investissement-au-maroc/"
+                            class="company-link" target="_blank">Article</a>
+                    </div>
+                </div>
+
+                <!-- Ebro Foods & Borges -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3 class="company-name">
+                            <img src="./images/ebro_logo.jpeg" alt="Ebro Foods Logo"
+                                onerror="this.style.display='none'">
+                            <span>Ebro Foods</span>
+                        </h3>
+                        <span class="company-country">Espagne</span>
+                    </div>
+                    <div class="company-sector">Agroalimentaire</div>
+                    <p class="company-description">
+                        Les groupes espagnols relocalisent une partie de leur production au Maroc
+                        pour réduire les coûts de main-d'œuvre de 40 % et économiser jusqu'à
+                        100 millions d'euros en douanes.
+                    </p>
+                    <div class="company-links">
+                        <a href="https://www.ebrofoods.es/en/" class="company-link" target="_blank">Site Web</a>
+                        <a href="https://www.journaleco.ma/agadir-une-terre-dopportunites-pour-le-partenariat-agricole-maroc-espagne/"
+                            class="company-link" target="_blank">Article</a>
+                    </div>
+                </div>
+
+                <!-- Arabtec -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3 class="company-name">
+                            <img src="./images/arabtec_logo.jpeg" alt="Arabtec Logo"
+                                onerror="this.style.display='none'">
+                            <span>Arabtec</span>
+                        </h3>
+                        <span class="company-country">EAU</span>
+                    </div>
+                    <div class="company-sector">Logement abordable</div>
+                    <p class="company-description">
+                        Arabtec s'installe au Maroc pour développer des logements abordables.
+                        Face à un déficit de plus de 500 000 unités, l'entreprise vise à créer
+                        jusqu'à 10 000 emplois.
+                    </p>
+                    <div class="company-links">
+                        <a href="https://www.arabtec-construction.com/en" class="company-link" target="_blank">Site
+                            Web</a>
+                        <a href="https://youtu.be/9bVfhXLV5Bw?si=zgCb3qEMIYaqoQ8k" class="company-link"
+                            target="_blank">Vidéo 1</a>
+                        <a href="https://youtu.be/mKB1nG-znh8?si=nyd3aggjFV3m1AF2" class="company-link"
+                            target="_blank">Vidéo 2</a>
+                    </div>
+                </div>
+
+                <!-- Sogetrel -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3 class="company-name">
+                            <img src="./images/sogetrel_logo.jpeg" alt="Sogetrel Logo"
+                                onerror="this.style.display='none'">
+                            <span>Sogetrel</span>
+                        </h3>
+                        <span class="company-country">France</span>
+                    </div>
+                    <div class="company-sector">Télécommunications & Réseaux</div>
+                    <p class="company-description">
+                        Le groupe français Sogetrel s'installe au Maroc avec l'objectif de créer
+                        1 000 emplois d'ici 2026, dont 500 dès fin 2024. Cette implantation vise
+                        à accompagner la digitalisation du Royaume.
+                    </p>
+                    <div class="company-links">
+                        <a href="https://www.sogetrel.fr/" class="company-link" target="_blank">Site Web</a>
+                        <a href="https://medias24.com/2024/04/19/le-francais-sogetrel-sinstalle-au-maroc-et-prevoit-la-creation-de-1-000-emplois-dici-2026/"
+                            class="company-link" target="_blank">Article</a>
+                        <a href="https://youtu.be/gVPX7OR8v28?si=Q-7cl2kD-Vp_r68M" class="company-link"
+                            target="_blank">Vidéo</a>
+                        <a href="https://www.journaleco.ma/genius-services-sogetrel-simplante-au-maroc-pour-un-nouveau-chapitre-international/"
+                            class="company-link" target="_blank">Article 2</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Information -->
+    <section class="additional-info" id="info">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Informations Complémentaires</h2>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3 class="company-name">
+                        <img src="./images/maroc_telecom_logo.jpeg" alt="Maroc Telecom Logo"
+                            onerror="this.style.display='none'">
+                        <span class="info-title">Maroc Telecom & PayX</span>
+                    </h3>
+                    <p>Maroc Telecom s'offre la startup locale PayX pour 50 millions d'euros. Une manière de dominer le
+                        marché des paiements mobiles avant l'afflux de touristes.</p>
+                    <a href="https://www.crowdfundinsider.com/2025/04/238914-visa-maroc-telecom-team-up-to-boost-mobile-payments-in-africa/"
+                        class="company-link" target="_blank">En savoir plus</a>
+                </div>
+
+                <div class="info-card">
+                    <h3 class="company-name">
+                        <img src="./images/carrefour_logo.jpeg" alt="carrefour Logo"
+                            onerror="this.style.display='none'">
+                        <span class="info-title">Carrefour & Repositionnement</span>
+                    </h3>
+                    <p>Carrefour cède 30% de ses magasins marocains à un fonds saoudien. Un repositionnement qui
+                        pourrait rebattre les cartes de la grande distribution.</p>
+                    <a href="https://www.carrefour.com/en" class="company-link" target="_blank">Carrefour</a>
+                </div>
+
+                <div class="info-card">
+                    <h3 class="company-name">
+                        <img src="./images/chari_logo.jpeg" alt="Chari Logo" onerror="this.style.display='none'">
+                        <span class="info-title">Startup Chari</span>
+                    </h3>
+                    <p>La licorne marocaine Chari lève 100 millions de dollars pour moderniser la logistique africaine.
+                        De quoi fluidifier l'acheminement des marchandises pendant le Mondial.</p>
+                    <a href="https://chari.ma/" class="company-link" target="_blank">Site Chari</a>
+                    <a href="https://youtu.be/FJS8t71NeeE?si=AFTfIVW2oWTV5ZVn" class="company-link"
+                        target="_blank">Vidéo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-background"></div>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-grid">
+                    <div class="footer-section">
+                        <h4>Maroc 2030</h4>
+                        <p>Stades, trains, data centers, usines... Le Maroc investit dans son avenir. La Coupe du Monde
+                            2030 devient un catalyseur.</p>
+                        <p style="margin-top: 1rem; font-style: italic;">Ce n'est pas qu'un tournoi, c'est une
+                            transformation.</p>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Secteurs Clés</h4>
+                        <ul>
+                            <li>• Technologie & R&D</li>
+                            <li>• Énergies Renouvelables</li>
+                            <li>• Transport & Logistique</li>
+                            <li>• Agroalimentaire</li>
+                            <li>• Construction & BTP</li>
+                            <li>• Télécommunications</li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Opportunités</h4>
+                        <ul>
+                            <li>• Hub régional stratégique</li>
+                            <li>• Infrastructure moderne</li>
+                            <li>• Main d'œuvre qualifiée</li>
+                            <li>• Croissance économique</li>
+                            <li>• Innovation technologique</li>
+                            <li>• Partenariats internationaux</li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Impacts Économiques</h4>
+                        <ul>
+                            <li>• +2% croissance PIB</li>
+                            <li>• +30% hausse exportations</li>
+                            <li>• 25M visiteurs en 2030</li>
+                            <li>• Milliers d'emplois créés</li>
+                            <li>• Modernisation infrastructure</li>
+                            <li>• Développement durable</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <div class="footer-logo">MAROC 2030</div>
+                    <div class="social-links">
+                        <a href="#" class="social-link">🏆</a>
+                        <a href="#" class="social-link">🇲🇦</a>
+                        <a href="#" class="social-link">⚽</a>
+                        <a href="#" class="social-link">🌍</a>
+                    </div>
+                    <div class="footer-content">
+                        <p>&copy; 2025 - Étude des investissements au Maroc | Coupe du Monde 2030</p>
+                        <p style="margin-top: 1rem; opacity: 0.7; font-size: 0.9rem;">
+                            Une nouvelle ère de croissance et d'opportunités pour le Royaume du Maroc
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all company cards
+        document.querySelectorAll('.company-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add parallax effect to hero background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroBackground = document.querySelector('.hero-bg');
+            if (heroBackground) {
+                heroBackground.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Counter animation for stats
+        let lastAnimated = 0;
+
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = counter.getAttribute('data-target') || counter.textContent;
+                const isPercentage = target.includes('%');
+                const isNumber = target.includes('M');
+
+                let finalValue = parseInt(target.replace(/[^0-9]/g, ''));
+
+                let current = 0;
+                const increment = finalValue / 100;
+
+                // Reset to 0 before animating
+                counter.textContent = isPercentage ? '+0%' : isNumber ? '0M' : '0';
+
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= finalValue) {
+                        current = finalValue;
+                        clearInterval(timer);
+                    }
+
+                    if (isPercentage) {
+                        counter.textContent = `+${Math.floor(current)}%`;
+                    } else if (isNumber) {
+                        counter.textContent = `${Math.floor(current)}M`;
+                    } else {
+                        counter.textContent = Math.floor(current);
+                    }
+                }, 50);
+            });
+        }
+
+        const statsSection = document.querySelector('.stats-grid');
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const now = Date.now();
+                    if (now - lastAnimated > 2000) { // wait 2s before reanimating
+                        animateCounters();
+                        lastAnimated = now;
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+
+        // Add hover effects to company links
+        document.querySelectorAll('.company-link').forEach(link => {
+            link.addEventListener('mouseenter', function () {
+                this.style.transform = 'scale(1.05) translateY(-2px)';
+            });
+
+            link.addEventListener('mouseleave', function () {
+                this.style.transform = 'scale(1) translateY(0)';
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease-in-out';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+
+</html>
